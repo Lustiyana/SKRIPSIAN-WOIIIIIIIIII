@@ -1,0 +1,12 @@
+2023/03/01-20:00:17.234 620 Reusing MANIFEST C:\Users\Acer\Documents\Document\kuliah\Semester\TA\bot-wa\auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/03/01-20:00:17.235 620 Recovering log #4
+2023/03/01-20:00:17.834 620 Reusing old log C:\Users\Acer\Documents\Document\kuliah\Semester\TA\bot-wa\auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000004.log 
+2023/03/01-21:45:05.114 116c Level-0 table #8: started
+2023/03/01-21:45:05.235 116c Level-0 table #8: 1211228 bytes OK
+2023/03/01-21:45:05.238 116c Delete type=0 #4
+2023/03/01-22:00:39.699 109c Compacting 1@1 + 1@2 files
+2023/03/01-22:00:39.868 109c Generated table #9@1: 22647 keys, 884296 bytes
+2023/03/01-22:00:39.868 109c Compacted 1@1 + 1@2 files => 884296 bytes
+2023/03/01-22:00:39.870 109c compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/03/01-22:00:39.870 109c Delete type=2 #5
+2023/03/01-22:00:39.870 109c Delete type=2 #8

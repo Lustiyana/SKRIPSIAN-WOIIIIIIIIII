@@ -29,7 +29,15 @@ function App() {
   const takePhoto = () => {
     if (canvasRef.current) {
       const context = canvasRef.current.getContext("2d");
-      context.drawImage(videoRef.current, 0, 0, 640, 480);
+      context.canvas.width = videoRef.current.videoWidth;
+      context.canvas.height = videoRef.current.videoHeight;
+      context.drawImage(
+        videoRef.current,
+        0,
+        0,
+        context.canvas.width,
+        context.canvas.height
+      );
       const dataUrl = canvasRef.current.toDataURL("image/png");
       setPhotoUrl(dataUrl);
       saveImageLocally();

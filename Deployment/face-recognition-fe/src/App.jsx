@@ -48,7 +48,7 @@ function App() {
     fetch(photoUrl)
       .then((res) => res.blob())
       .then((blob) => {
-        saveAs(blob, "image.jpg");
+        saveAs(blob, "/assets/image.jpg");
       });
   };
 

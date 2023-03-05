@@ -1,5 +1,8 @@
 const qrcode = require("qrcode-terminal");
 const fs = require("fs");
+const FormData = require("form-data");
+const axios = require("axios");
+const fetch = require("node-fetch");
 const { Client, LocalAuth, MessageMedia } = require("whatsapp-web.js");
 
 const client = new Client({
@@ -15,17 +18,27 @@ client.on("ready", () => {
 });
 
 client.on("message", async (msg) => {
-  console.log(msg.body);
-
   if (msg.body === "hai") {
     msg.reply("Hai ada yang bisa dibantu");
   }
   if (msg.hasMedia) {
     const media = await msg.downloadMedia();
-    msg.reply("Kamu memasukkan gambar");
-    const imageData = Buffer.from(media.data, "base64");
-
-    fs.writeFileSync("image.jpg", imageData);
+    const formData = new FormData();
+    formData.append("files", media.data, media.mimetype);
+    const config = {
+      headers: {
+        "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+      },
+    };
+    axios
+      .post("http://127.0.0.1:1337/api/upload", formData, config)
+      .then((response) => {
+        msg.reply("Media berhasil diunggah ke API");
+      })
+      .catch((error) => {
+        console.log(error);
+        msg.reply("Terjadi kesalahan saat mengunggah media ke API");
+      });
   }
 });
 
